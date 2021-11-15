@@ -18,6 +18,20 @@
         }
     </style>
 
+    <script>
+
+        //Al cargar el script antes de que el document de html esté cargado al 100% no encontrará los elementos necesarios para aplicar los estilos a los elementos
+
+        jQuery('ul').css("color","red");
+        jQuery('ul').css("font-weight", "bolder");
+        jQuery('li').css("list-style","none");
+
+        //Por lo que estos estilos de etiquetas y clases no serán aplicados ya que las etiquetas <ul>, <ol> y <li> no se encuentran disponibles aun
+        jQuery('ol').addClass("textoVerde");
+        jQuery('ol').addClass("colorDeFondo");
+
+    </script>
+
     <title>Leccion 01</title>
 </head>
 <body>
@@ -34,17 +48,5 @@
         <li>Adios 3</li>
     </ol>
 
-    <script>
-
-        //Aplicando estilos css a un elemento html
-        jQuery('ul').css("color","red");
-        jQuery('ul').css("font-weight", "bolder");
-        jQuery('li').css("list-style","none");
-
-        //Aplicando clases css a elementos html
-        jQuery('ol').addClass("textoVerde");
-        jQuery('ol').addClass("colorDeFondo");
-
-    </script>
 </body>
 </html>

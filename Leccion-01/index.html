@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- importando la libreria de jQuery -->
+    <script src="./js/lib/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .textoVerde{
+            color: green;
+        }
+
+        .colorDeFondo{
+            background: silver;
+        }
+    </style>
+
+    <title>Leccion 01</title>
+</head>
+<body>
+
+    <ul>
+        <li>Hola 1</li>
+        <li>Hola 2</li>
+        <li>Hola 3</li>
+    </ul>
+
+    <ol>
+        <li>Adios 1</li>
+        <li>Adios 2</li>
+        <li>Adios 3</li>
+    </ol>
+
+    <script>
+
+        //Aplicando estilos css a un elemento html
+        jQuery('ul').css("color","red");
+        jQuery('ul').css("font-weight", "bolder");
+        jQuery('li').css("list-style","none");
+
+        //Aplicando clases css a elementos html
+        jQuery('ol').addClass("textoVerde");
+        jQuery('ol').addClass("colorDeFondo");
+
+    </script>
+</body>
+</html>

@@ -8,6 +8,9 @@
     <!-- importando la libreria de jQuery -->
     <script src="./js/lib/jquery-3.6.0.min.js"></script>
 
+    <!-- Importando la libreria de Bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">
+
     <style>
         .textoVerde{
             color: green;
@@ -18,7 +21,8 @@
         }
 
         .primerHijo{
-            border: 1px solid black;
+            color: aqua;
+            border: 1px dotted black;
         }
 
         .ultimoHijo{
@@ -28,47 +32,112 @@
 
     <script>
 
-        //Al cargar el script antes de que el document de html esté cargado al 100% no encontrará los elementos necesarios para aplicar los estilos a los elementos
-
-        // jQuery('ol').addClass("textoVerde");
-        // jQuery('ol').addClass("colorDeFondo");
-
-        //Por lo que estos estilos de etiquetas y clases no serán aplicados ya que las etiquetas <ul>, <ol> y <li> no se encuentran disponibles aun
-
-        //Para solucionar el problema de aplicar los estilos antes de que el document html este listo se utiliza la funcion $(document).ready(function(){ statement});
-
-        //jQuery = $
         $(document).ready(function(){
             $('ul').css("color","red");
             $('ul').css("font-weight", "bolder");
-            $('li:first-child').addClass(".primerHijo");
+            $('ul > li:first-child').addClass("primerHijo");
         });
 
-        //La version reducida de la funcion anterior es:
+
         $(function(){
             $('ol').addClass("textoVerde");
             $('ol').addClass("colorDeFondo");
-            $('li:last-child').addClass("ultimoHijo");
+            $('ol > li:last-child').addClass("ultimoHijo");
         });
 
-        //La version anterior será la utilizada en el resto del curso
     </script>
 
     <title>Leccion 01</title>
 </head>
 <body>
 
-    <ul>
-        <li>Hola 1</li>
-        <li>Hola 2</li>
-        <li>Hola 3</li>
-    </ul>
+    <!-- Usando la clase container de Bootstrap -->
+    <div class="container">
+        <h1>Trabajando con aspectos básicos de jQuery y Bootstrap</h1>
+        <hr>
+        <ul>
+            <li>Hola 1</li>
+            <li>Hola 2</li>
+            <li>Hola 3</li>
+        </ul>
 
-    <ol>
-        <li>Adios 1</li>
-        <li>Adios 2</li>
-        <li>Adios 3</li>
-    </ol>
+        <ol>
+            <li>Adios 1</li>
+            <li>Adios 2</li>
+            <li>Adios 3</li>
+        </ol>
 
+        <!-- Probando algunas clases bootstrap relacionadas a las tablas -->
+        <table class="table table-bordered table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Ciudad</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>1</td>
+                <td>Joaquin</td>
+                <td>Sayago</td>
+                <td>Xalapa</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Esther</td>
+                <td>Ramirez</td>
+                <td>Orizaba</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Pedro</td>
+                <td>Hernández</td>
+                <td>Córdoba</td>
+            </tr>
+        </table>
+
+
+        <!-- Aplicando clase bootstrap a enlace -->
+        <a href="http://google.com" class="link-primary">Google</a>
+
+        <!-- Aplicando clase bootstrap a elemento img -->
+        <img src="https://desafiohosting.com/wp-content/uploads/2019/07/que-es-bootstrap.png" alt="Imagen del logo bootstrap" class="img-responsive img-circle">
+
+        <!-- Aplicando clases bootstrap referentes a los formularios -->
+        <form action="" class="form-horizontal">
+
+            <div class="form-group">
+                <label for="" class="col-sm-2 control-label">Email: </label>
+                <div class="col-sm-10">
+                    <input type="email" value="" class="form-control" placeholder="Correo electrónico">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-sm-2 control-label">Password: </label>
+                <div class="col-sm-10">
+                    <input type="password" value="" class="form-control" placeholder="Contraseña">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name=""> Recuerdame
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary"> Registrarse </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
 </body>
 </html>

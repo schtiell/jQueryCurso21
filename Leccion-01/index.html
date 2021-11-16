@@ -16,6 +16,14 @@
         .colorDeFondo{
             background: silver;
         }
+
+        .primerHijo{
+            border: 1px solid black;
+        }
+
+        .ultimoHijo{
+            text-transform: uppercase;
+        }
     </style>
 
     <script>
@@ -33,13 +41,14 @@
         $(document).ready(function(){
             $('ul').css("color","red");
             $('ul').css("font-weight", "bolder");
-            $('li').css("list-style","none");
+            $('li:first-child').addClass(".primerHijo");
         });
 
         //La version reducida de la funcion anterior es:
         $(function(){
             $('ol').addClass("textoVerde");
             $('ol').addClass("colorDeFondo");
+            $('li:last-child').addClass("ultimoHijo");
         });
 
         //La version anterior será la utilizada en el resto del curso

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Importando la librearia de jQuery -->
+    <script src="./js/lib/jquery-3.6.0.min.js"></script>
+
+    <!-- Importando la libreria de bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <script>
+
+        $( function () {
+
+            /*Busca las imagenes y le cambia el atributo source con la imagen especificada como segundo argumento
+            $('img').attr('src','./img/profesor.jpg');
+
+            //Remueve la clase especificada como parametro
+            $('img').removeClass('img-circle');
+
+            //Agrega la clase especificada a la img
+            $('img').addClass('img-thumbnail');
+
+            Aunque esto no es eficiente ya por cada elemento se le indica que debe buscar en todas las imagenes contenidas en el DOM de html. Para hacerlo mas eficiente se debe usar el encadenamiento de jQuery
+
+            Ejemplo de Encadenamiento jQuery. Lo que permite hacer varios cambios a un elemento en una sola ida al DOM para afectar el elemento HTML
+            $('img')
+                .attr('src' , './img/profesor.jpg')
+                .removeClass('img-circle')
+                .addClass('img-thumbnail');
+            */
+
+            $('img')
+                .attr('src','./img2/profesor.jpg')
+
+                //Agregando 2 clases en una misma instrucción. Una clase de bootstrap y otra mia definida en las etiquetas styles de css
+                .addClass('img-thumbnail images');
+
+        });
+
+    </script>
+
+    <!-- Aplicando algunos estilos css -->
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+        }
+
+        .images{
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Linea horizontal html */
+        hr{
+            margin-bottom: 60px;
+        }
+
+        .estilosListas {
+            background: lightgreen;
+            width: 200px;
+        }
+    </style>
+
+    <title>Selectores y encadenamiento</title>
+
+</head>
+<body>
+    <div class="container">
+
+        <h1>Selectores y encadenamiento</h1>
+
+        <hr>
+
+        <div class="row">
+
+            <div class="col-sm-4">
+
+                <!-- La clase="img-circle" es predefinida por bootstrap y aplica un estilo redondo a una imagen -->
+                <img src="./img/nophoto.jpg" alt="" class="img-circle">
+            </div>
+
+            <div class="col-sm-5">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, soluta beatae? Similique natus tenetur numquam. Exercitationem repellendus facere minus facilis eveniet, libero iure fuga officiis consequatur, ullam asperiores quia repudiandae!</p>
+            </div>
+
+            <div class="col-sm-3">
+                <ul>
+                    <li>Matemáticas</li>
+                    <li>Programación</li>
+                    <li>Analisis</li>
+                    <li>Fisica</li>
+                    <li>Geografia</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /*
+            // 1. Funcion de jQuery aplicando un estilo de letra rojo
+            jQuery(document).ready(function (){
+                jQuery('ul').css("color","red");
+            });
+
+            // 2. Funcion de jQuery aplicando una clase css a un elemento li. Versión corta de jQuery
+            $(document).ready( function () {
+                $("li").addClass("estilosListas");
+            });
+
+            // 3. Función mas corta aun y la mas usada para aplicar un estilo css a un parrafo.
+            $( function() {
+                $('p').css("font-family","Verdana");
+            });
+
+            //La tercera es lo mismo que las 2 anteriores pero es la mas comun por su reducido codigo
+        */
+    </script>
+</body>
+</html>

@@ -13,31 +13,35 @@
 
     <script>
 
-        $( function () {
+        $(function() {
 
-            /*Busca las imagenes y le cambia el atributo source con la imagen especificada como segundo argumento
-            $('img').attr('src','./img/profesor.jpg');
-
-            //Remueve la clase especificada como parametro
-            $('img').removeClass('img-circle');
-
-            //Agrega la clase especificada a la img
-            $('img').addClass('img-thumbnail');
-
-            Aunque esto no es eficiente ya por cada elemento se le indica que debe buscar en todas las imagenes contenidas en el DOM de html. Para hacerlo mas eficiente se debe usar el encadenamiento de jQuery
-
-            Ejemplo de Encadenamiento jQuery. Lo que permite hacer varios cambios a un elemento en una sola ida al DOM para afectar el elemento HTML
             $('img')
-                .attr('src' , './img/profesor.jpg')
-                .removeClass('img-circle')
+                .attr('src','./img/profesor.jpg')
                 .addClass('img-thumbnail');
-            */
 
-            $('img')
-                .attr('src','./img2/profesor.jpg')
+            //Imprime en consola el numero de hijos (elementos html, no saltos de linea) dentro del elemento padre con la clase especificada
+            console.log($('.col-sm-5').children());
 
-                //Agregando 2 clases en una misma instrucción. Una clase de bootstrap y otra mia definida en las etiquetas styles de css
-                .addClass('img-thumbnail images');
+            //Identifica un elemento html por su clase definida
+            $('.col-sm-5')
+
+                //Busca los elemento <p> dentro del padre que tiene la clase col-sm-5
+                .find('p')
+
+                //El texto del elemento <p> es reemplazado por el especificado en el argumento. Todo lo reconoce como texto plano es decir no reconoce etiquetas de html
+                .text('Hola esta es una prueba de modificacion del texto de un párrafo utilizando <b>jQuery y bootstrap</b>, estoy estudiando este interesante curso!!!')
+
+                //reemplaza el texto del elemento buscado pero a diferencia de .text este aplica las etiquedas html indicadas en el texto y muestra los cambios en el navegador
+                .html('Hola esta es una prueba de modificacion del texto de un párrafo utilizando <b>jQuery y bootstrap</b>, estoy estudiando este interesante curso!!!');
+
+            //Trabajando estilos con la lista no ordenada
+            $('ul li')
+                    .eq(0).addClass('morado').end()
+                    .eq(1).addClass('verdeClaro').end()
+                    .eq(2).addClass('coral').end()
+                    .eq(3).addClass('azul').end()
+                    .eq(4).addClass('naranja').end();
+
 
         });
 
@@ -50,11 +54,6 @@
             height: 200px;
         }
 
-        .images{
-            width: 300px;
-            height: 300px;
-        }
-
         /* Linea horizontal html */
         hr{
             margin-bottom: 60px;
@@ -64,6 +63,27 @@
             background: lightgreen;
             width: 200px;
         }
+
+        .morado{
+            color: purple;
+        }
+
+        .verdeClaro{
+            color: lightgreen;
+        }
+
+        .coral{
+            color: coral;
+        }
+
+        .azul{
+            color: deepskyblue;
+        }
+
+        .naranja {
+            color: orangered;
+        }
+
     </style>
 
     <title>Selectores y encadenamiento</title>
@@ -78,10 +98,12 @@
 
         <div class="row">
 
-            <div class="col-sm-4">
+            <!-- div con 2 clases de bootstrap, para definir columna, y para centrar el texto al centro -->
+            <div class="col-sm-4 text-center">
 
                 <!-- La clase="img-circle" es predefinida por bootstrap y aplica un estilo redondo a una imagen -->
                 <img src="./img/nophoto.jpg" alt="" class="img-circle">
+                <h4>Joaquín Sayago</h4>
             </div>
 
             <div class="col-sm-5">
@@ -99,26 +121,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        /*
-            // 1. Funcion de jQuery aplicando un estilo de letra rojo
-            jQuery(document).ready(function (){
-                jQuery('ul').css("color","red");
-            });
-
-            // 2. Funcion de jQuery aplicando una clase css a un elemento li. Versión corta de jQuery
-            $(document).ready( function () {
-                $("li").addClass("estilosListas");
-            });
-
-            // 3. Función mas corta aun y la mas usada para aplicar un estilo css a un parrafo.
-            $( function() {
-                $('p').css("font-family","Verdana");
-            });
-
-            //La tercera es lo mismo que las 2 anteriores pero es la mas comun por su reducido codigo
-        */
-    </script>
 </body>
 </html>

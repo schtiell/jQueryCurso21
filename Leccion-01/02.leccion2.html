@@ -34,15 +34,15 @@
                 //reemplaza el texto del elemento buscado pero a diferencia de .text este aplica las etiquedas html indicadas en el texto y muestra los cambios en el navegador
                 .html('Hola esta es una prueba de modificacion del texto de un párrafo utilizando <b>jQuery y bootstrap</b>, estoy estudiando este interesante curso!!!');
 
-            //Trabajando estilos con la lista no ordenada
+            //Trabajando estilos con la lista no ordenada. La función .end()
             $('ul li')
+
+                    //Funcion end() permite regresar al selector original
                     .eq(0).addClass('morado').end()
                     .eq(1).addClass('verdeClaro').end()
                     .eq(2).addClass('coral').end()
                     .eq(3).addClass('azul').end()
                     .eq(4).addClass('naranja').end();
-
-
         });
 
     </script>

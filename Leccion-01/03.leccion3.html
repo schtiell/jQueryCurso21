@@ -45,6 +45,12 @@
         </div>
 
         <a href="http://google.com" id="linkGoogle">Ir a google</a>
+
+        <br><br>
+
+        <button type="submit" id="btn-show" class="btn btn-primary">Mostrar parrafo</button>
+
+        <p id="parrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur aut sapiente, velit obcaecati, sunt magni deserunt incidunt molestias veritatis doloremque unde aliquid ipsam! Aperiam voluptatem enim sunt. Dolorem, commodi adipisci.</p>
     </div>
 
     <script>
@@ -57,7 +63,7 @@
 
             //Se indica que al dar clic sobre el boton con id btn-1 se ejecute la funcion que lanza un msj en consola
 
-            //el metodo on permite ejecutar los eventos una vez que el DOM ha cargado completamente.
+            //el metodo on permite ejecutar los eventos una vez que el DOM ha cargado completamente.git
             $('#btn-1').on('click', function(){
                 console.log('Clikeando sobre el boton');
             });
@@ -91,6 +97,18 @@
                 //Redireccionando al enlace contenido en el atributo href de la etiqueta a
                 window.location = link;
             });
+
+            $("#parrafo").on("click", function () {
+                $(this).hide("slow");
+            });
+
+            $("#btn-show").on("click", function(){
+                $("#parrafo").show("slow");
+            });
+
+            // $("#parrafo").on('click', function () {
+            //     $(this).toggle("slow");
+            // })
         });
     </script>
 </body>

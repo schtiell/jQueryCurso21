@@ -1,0 +1,15 @@
+dl{
+    width: 450px;
+}
+
+dd{
+    margin: 0;
+    padding: 10px;
+}
+
+dt{
+    cursor: pointer;
+    font-size: 18px;
+    background: lightsteelblue;
+    border-top: 2px solid lightseagreen;
+}

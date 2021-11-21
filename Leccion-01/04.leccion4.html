@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Javascript -->
+    <!-- Importando la libreria jQuery -->
+    <script src="./js/lib/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        // Encapsulamiento de función anónima
+        (function (){
+
+            //Inicialización de jQuery una vez que el DOM ha terminado de cargar
+            $(function (){
+
+                //Almacenados los dd en una variable para no estar consultando constantemente en el DOM
+                var dds = $('dd');
+
+                //Ocultando todos los elementos contenidos en la variable dds
+                dds.hide();
+
+                //Selecciona un elementoto especifico del objetos de elementos y lo muestra
+                dds.eq(0).show();
+
+                $('dt').on("mouseenter", function(){
+
+                    //dds.hide();
+
+                    //El método slideUp() desliza hacia arriba (oculta) los elementos seleccionados. Recibe un parametro de tiempo en milisegundos par acelerar o alentar el efecto
+                    dds.slideUp(800);
+                    //Selecciona el siguiente elemento hermano en el niver jerarquico del DOM
+                    $(this)
+                        .next()
+                        .show();
+                });
+            });
+
+        })();
+
+    </script>
+
+    <!-- Styles -->
+    <!-- Importando la libreria de Bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!-- Aplicandos estilos css -->
+    <link rel="stylesheet" href="./css/styles.css" type="text/css">
+
+
+    <title>Lección 4</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Lección 4: Acordeon</h1>
+        <hr>
+
+        <div class="" align="center">
+            <!-- https://www.w3schools.com/tags/tag_dl.asp-->
+            <dl>
+                <dt>Titulo del acordeon</dt>
+                <dd>Este es el detalle del acordeon</dd>
+                <dt>Titulo del acordeon</dt>
+                <dd>Este es el detalle del acordeon</dd>
+                <dt>Titulo del acordeon</dt>
+                <dd>Este es el detalle del acordeon</dd>
+                <dt>Titulo del acordeon</dt>
+                <dd>Este es el detalle del acordeon</dd>
+                <dt>Titulo del acordeon</dt>
+                <dd>Este es el detalle del acordeon</dd>
+                <dt>Titulo del acordeon</dt>
+                <dd>Este es el detalle del acordeon</dd>
+                <dt>Titulo del acordeon</dt>
+                <dd>Este es el detalle del acordeon</dd>
+            </dl>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -16,6 +16,14 @@
             width: 150px;
             height: 150px;
         }
+
+        .colorRojo{
+            width: 150px;
+            height: 150px;
+            background: red;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
     </style>
 
     <title>Leccion 03 Evenos</title>
@@ -31,23 +39,57 @@
         <br><br>
 
         <img src="./img/nophoto.jpg" alt="img de fondo" id="img-1" class="img100 img-circle img-rounded">
+
+        <div class="colorRojo">
+
+        </div>
+
+        <a href="http://google.com" id="linkGoogle">Ir a google</a>
     </div>
 
     <script>
+        /*
+            jQuery(document).ready(function (){statement});
+            $(document).ready(function() { statement});
+        */
         $(function (){
             console.log('Llegue a jQuery');
 
             //Se indica que al dar clic sobre el boton con id btn-1 se ejecute la funcion que lanza un msj en consola
-            $('#btn-1').click(function(){
+
+            //el metodo on permite ejecutar los eventos una vez que el DOM ha cargado completamente.
+            $('#btn-1').on('click', function(){
                 console.log('Clikeando sobre el boton');
             });
 
-            $('#img-1').mouseenter (function () {
+            $('#img-1').on('mouseenter',function () {
                 $(this).attr('src','./img/profesor.jpg');
             });
 
-            $('#img-1').mouseleave(function () {
+            $('#img-1').on('mouseleave',function () {
                 $(this).attr("src","./img/nophoto.jpg");
+            });
+
+            $('.colorRojo').on('mouseover',function () {
+                $(this).css('background','lightgreen');
+            });
+
+            $('.colorRojo').on('mouseleave',function () {
+                $(this).css('background','red');
+            });
+
+            //e como parametro es = eventos
+            //preventDefault(), evita el funcionamiento por default del elemento html
+            $('#linkGoogle').on('click',function (e) {
+                e.preventDefault();
+                console.log('Se hizo clic sobre el link a google');
+
+                //Obteniendo el valor de un atributo de un elemento html
+                let link = $(this).attr('href');
+                console.log(link);
+
+                //Redireccionando al enlace contenido en el atributo href de la etiqueta a
+                window.location = link;
             });
         });
     </script>

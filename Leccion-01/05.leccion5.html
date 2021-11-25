@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Scripts -->
+    <!-- Importando la libreria de jQuery -->
+    <script src="./js/lib/jquery-3.6.0.min.js"></script>
+
+    <script>
+        //Encapsulamiento con una función anónima
+        (function () {
+
+            //Mensaje en consola
+            console.log("Lección 05: on y bind");
+
+            //document.ready() de jQuery
+            $(function () {
+
+                let contador = 1;
+
+                let parrafo = "Este es un parrafo utilizado para el ejemplo \n";
+
+                //Busca en el body los elementos h3 que al darles click agrega al principio del id parrafo1 un parrafo y al final del elemento .container un h3, al dar clic sobre los h3 se clona el mismo mensaje de h3
+                $('body').on("click", "h3", function() {
+
+                    let h3 = `<h3> h3 dinamico: ${contador} </h3>`;
+
+                    console.log( `Click.... ${contador}`);
+
+                    $('#parrafo1').prepend(parrafo);
+                    $('.container').append(h3);
+
+                    contador += 1;
+
+                })
+
+            });
+
+        })(); //instanciando una funcion anónima
+    </script>
+
+    <!-- Styles -->
+    <!-- Importando el framework bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!-- Importando los estilos css -->
+    <link rel="stylesheet" href="./css/05.styles.css" type="text/css">
+
+    <title>Leccion 5</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Leccion 5: On y Bind</h1>
+
+        <hr>
+
+        <p id="parrafo1">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+        <p>Facilis modi soluta saepe earum tenetur odit fugit.</p>
+
+        <p>Vitae n adipisci quis ipsam ipsum et facere temporibus unde id, iure deleniti </p>
+
+        <p>Cupiditate expedita cul.</p>
+
+        <h3>Click me!!!</h3>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Importando la libreria de jQuery -->
+    <script src="./js/lib/jquery-3.6.0.min.js"></script>
+
+    <!-- Importando el framework bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <style>
+        button, table, h1, select, hr{
+            margin: 20px;
+        }
+
+        ·form-control{
+            width: 400px;
+        }
+    </style>
+
+    <script>
+        //Funcion anonima
+        (function(){
+
+            //Iniciando jQuery hasta que el DOM ha sido cargado completamente
+            $(function(){
+
+                let contador = 1;
+
+                let base = $("#listTablas").val();
+
+                $("#multiplicar").on("click", function(){
+
+                    let resultado = base * contador;
+
+                    let tabla =
+                        `<tr>
+                            <td> ${base} </td>
+                            <td> * </td>
+                            <td> ${contador} </td>
+                            <td> = </td>
+                            <td> ${resultado} </td>
+                        </tr>`;
+
+                    $("#idTable").append(tabla);
+
+                    contador += 1;
+
+                });
+
+                $("#listTablas").on("change", function(){
+
+                    $("tr").not(":eq(0)").remove();
+
+                    base = $("#listTablas").val();
+
+                    contador = 1;
+
+                });
+
+            });
+
+        })();
+
+    </script>
+
+    <title>Ejercicio tabla de multiplicar</title>
+</head>
+<body>
+
+    <h1>Tabla de Multiplicar</h1>
+
+    <hr>
+
+    <select id="listTablas" class="form-control">
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5" selected>5</option>
+        <option value="6">6</option>
+    </select>
+
+    <button class="btn btn-primary" id="multiplicar">Agregar linea</button>
+
+    <table id="idTable" class="table table-striped">
+        <tr>
+            <th>Base</th>
+            <th>*</th>
+            <th>Número</th>
+            <th>=</th>
+            <th>Resultado</th>
+        </tr>
+    </table>
+</body>
+</html>

@@ -19,21 +19,26 @@
             //document.ready() de jQuery
             $(function () {
 
-                let contador = 1;
+                let contador = 0;
 
-                let parrafo = "Este es un parrafo utilizado para el ejemplo \n";
-
-                //Busca en el body los elementos h3 que al darles click agrega al principio del id parrafo1 un parrafo y al final del elemento .container un h3, al dar clic sobre los h3 se clona el mismo mensaje de h3
                 $('body').on("click", "h3", function() {
 
-                    let h3 = `<h3> h3 dinamico: ${contador} </h3>`;
+                    contador += 1;
+
+                    let h3 = `<h3 id="h3-${contador}"> h3 dinamico: ${contador} </h3><hr>`;
+
+                    let parrafo = `<p>Este es un parrafo utilizado para el ejemplo <b>${contador}</b></p>`;
 
                     console.log( `Click.... ${contador}`);
 
-                    $('#parrafo1').prepend(parrafo);
+                    //$('#parrafo1').prepend(parrafo);
                     $('.container').append(h3);
 
-                    contador += 1;
+                    if (contador === 3) {
+                        $('#h3-2').bind("click", function () {
+                        console.log("Función dinamica");
+                    });
+                    }
 
                 })
 
@@ -53,17 +58,12 @@
 </head>
 <body>
     <div class="container">
+
         <h1>Leccion 5: On y Bind</h1>
 
         <hr>
 
         <p id="parrafo1">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-
-        <p>Facilis modi soluta saepe earum tenetur odit fugit.</p>
-
-        <p>Vitae n adipisci quis ipsam ipsum et facere temporibus unde id, iure deleniti </p>
-
-        <p>Cupiditate expedita cul.</p>
 
         <h3>Click me!!!</h3>
 

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Importando la libreria de jQuery -->
+    <script src="./js/lib/jquery-3.6.0.min.js"></script>
+
+    <!-- Importando bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <script>
+
+        //Función anonima que se autoejecuta
+        (function (){
+
+            //Inicando jQuery una vez que el DOM ha cargado completamente
+            $(function(){
+
+                var auto = {
+
+                    //Atributos del objeto
+                    marca : 'Nissan',
+                    modelo : 'Versa',
+                    puertas : 4,
+                    color : ['verde','rojo','blanco','negro','azul'],
+                    creador : {
+                        telefono : 223344556,
+                        direccion : "Japon, tokio",
+                        anho : 2021
+                    },
+
+                    estatusAuto : false,
+
+                    //Métdodos del objeto
+                    arrancar : function () {
+                        if (this.estatusAuto) {
+                            console.log("El auto ya habia sido arrancado");
+                        } else {
+                            console.log("Encendiendo el motor...");
+                            this.estatusAuto = true;
+                        }
+                    },
+
+                    apagar : function () {
+                        if (this.estatusAuto){
+                            console.log("Apagando el motor...");
+                            this.estatusAuto = false
+                        }else{
+                            console.log("El auto ya estaba apagado");
+                        }
+                    }
+                }
+
+                // var fabricante = auto.creador;
+
+                // console.log(auto.modelo);
+                // console.log(auto.color.length);
+                // console.log(auto.creador);
+
+                // console.log(fabricante.direccion);
+
+                // //El valor de la clave direccion es cambiado por el nuevo valor, paso de parametro por referencia
+                // fabricante.direccion = "Los Angeles, San Francisco";
+
+                // console.log(fabricante.direccion);
+                // console.log(auto.creador);
+
+                // auto.arrancar();
+                // auto.arrancar();
+                // auto.apagar();
+                // auto.apagar();
+
+                $("#encenderAuto").on("click", function (){
+                    auto.arrancar();
+                })
+
+                $("#apagarAuto").on("click", function () {
+                    auto.apagar();
+                })
+
+            });
+
+        })();
+    </script>
+
+    <title>Programación Orientada a Objetos</title>
+</head>
+<body>
+    <h1>Lección 07: <small>Programación Orientanda a Objetos</small></h1>
+    <hr>
+
+    <button type="submit" id="encenderAuto" class="btn btn-success">Encender</button>
+    <button type="submit" id="apagarAuto" class="btn btn-warning">Apagar</button>
+
+</body>
+</html>

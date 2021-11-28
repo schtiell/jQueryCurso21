@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Importando la libreria jQuery -->
+    <script src="./js/lib/jquery-3.6.0.min.js"></script>
+
+    <!-- Importando el framework bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <style>
+        html,
+        body{
+            margin: 20px;
+        }
+    </style>
+
+    <script>
+
+        (function () {
+            $(function(){
+
+                /*  let cajaDeText = '<input type="text" id="idText" class="form-control" placeholder="Ingrese su nombre:">';
+                    $('.container').append(cajaDeText);
+                    o bien:
+                */
+
+                $("<input>", {
+                    type:           "text",
+                    id:             "idText",
+                    class:          "form-control",
+                    placeholder:    "Ingese su nombre"
+                })
+                .appendTo(".container")
+                .on("keypress", function (event){
+
+                    //La función keyCode muestra el codigo ASCII de la tecla presionada
+                    console.log( event.keyCode);
+                });
+
+                //Aplicando estilos de css al elemento input creado anteriormente, el formato es el de un objeto
+                $("#idText").css({
+                    position : "relative",
+                    top: "200px"
+                });
+            });
+
+        })();
+    </script>
+
+    <title>Leccion 08: Continuando con los objetos de js</title>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Lección 8: <small>Continuando con los objetos de js</small></h1>
+        <hr>
+    </div>
+
+</body>
+</html>

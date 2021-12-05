@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Importando la libreria jQuery -->
+    <script src="./js/lib/jquery-3.6.0.min.js"></script>
+
+    <!-- Importando bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!-- Importando favicon -->
+    <link rel="icon" type="image/x-icon" src="https://img.icons8.com/color/48/000000/tesla-logo.png"/>
+
+    <style>
+        .form-group{
+            position: relative;
+            top: -150px;
+        }
+
+        @media (max-width: 1000px) {
+            .form-group{
+                top: -80px;
+            }
+        }
+    </style>
+
+    <script>
+
+        //Función anonima autoejecutable
+        (function () {
+
+            //inicio de jQuery una vez que el DOM ha cargado completamente
+            $(function () {
+
+                //Sobre el input select cada vez que cambie
+                $("#inputSelect").on("change",function () {
+
+                    //Se almacena en una variable color, se obtiene el valor seleccionado
+                    var color = $(this).val();
+
+                    //Se almacena en una varible el source de la imagen, con el color como variable para hacer el cambio de la img cada ves que cambie el valor del select
+                    var url = `./img/tesla/modelS-${color}.jpg`;
+
+                    //Se cambia el atributo src de la imagen con el valor de la variable url
+                    $("#imgAuto").attr("src",url);
+                });
+            });
+        })();
+    </script>
+
+    <title>Ejercicio sitio Tesla Motors</title>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Ejercicio:<small>Tesla Motors!!!</small></h1>
+        <hr>
+
+        <!-- <div class="divPreloader">
+            <img src="./img/loading.gif" class="imgLoader img-responsive" alt="imagen animada de carga">
+        </div> -->
+
+        <div class="vistaPrevia">
+            <img src="./img/tesla/modelS-blanco.jpg" id="imgAuto" class="img-responsive" alt="img tesla">
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-5">
+                <select id="inputSelect" class="form-control">
+                    <option value="Blanco">Blanco</option>
+                    <option value="Negro">Negro</option>
+                    <option value="Rojo">Rojo</option>
+                    <option value="verde">Verde</option>
+                    <option value="cafe">Cafe</option>
+                    <option value="rojooscuro">Rojo Oscuro</option>
+                    <option value="gris">Gris</option>
+                    <option value="azul">Azul</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

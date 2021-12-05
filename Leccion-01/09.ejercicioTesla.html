@@ -15,6 +15,12 @@
     <link rel="icon" type="image/x-icon" src="https://img.icons8.com/color/48/000000/tesla-logo.png"/>
 
     <style>
+
+        .divPreloader{
+            position: absolute;
+            opacity: .3;
+        }
+
         .form-group{
             position: relative;
             top: -150px;
@@ -29,24 +35,48 @@
 
     <script>
 
-        //Función anonima autoejecutable
         (function () {
 
-            //inicio de jQuery una vez que el DOM ha cargado completamente
             $(function () {
 
-                //Sobre el input select cada vez que cambie
-                $("#inputSelect").on("change",function () {
+                var teslaVista = {
 
-                    //Se almacena en una variable color, se obtiene el valor seleccionado
-                    var color = $(this).val();
+                    //Definiendo un array para los colores, si no se envian más colores en el parametro de la funcion init, entonces toma este array como base para trabajar con las opciones de colores
+                    colores: ['Blanco', 'Rojo', 'Negro'],
 
-                    //Se almacena en una varible el source de la imagen, con el color como variable para hacer el cambio de la img cada ves que cambie el valor del select
-                    var url = `./img/tesla/modelS-${color}.jpg`;
+                    //Funcion principal
+                    init: function (Arguments) {
 
-                    //Se cambia el atributo src de la imagen con el valor de la variable url
-                    $("#imgAuto").attr("src",url);
+                        //Extiende las opciones del objeto teslaVista de acuerdo a los argumentos
+                        $.extend (teslaVista, Arguments)
+
+                        //Ciclo para recorrer el arreglo de colores y crear las opciones del select
+                        for (let i = 0; i < teslaVista.colores.length; i++) {
+
+                            var color = teslaVista.colores[i];
+
+                            $("<option>",{
+                                value: color,
+                                text: color,
+                            }).appendTo("#inputSelect");
+                        }
+
+                        //Cambiando la imagen deacuerdo al color seleccionado en el elemento select
+                        $('#inputSelect').on("change", function () {
+
+                            var color = $(this).val();
+                            var url = `./img/tesla/modelS-${color}.jpg`;
+                            $("#imgAuto").attr("src",url);
+                        })
+                    }
+                };
+
+                teslaVista.init({
+
+                    //Se define un objeto con un array de colores y se envia como argumento a la funcion init
+                    colores: ['Blanco', 'Rojo', 'Negro', 'Azul', 'Cafe', 'Gris', 'Rojo Oscuro']
                 });
+
             });
         })();
     </script>
@@ -58,9 +88,9 @@
         <h1>Ejercicio:<small>Tesla Motors!!!</small></h1>
         <hr>
 
-        <!-- <div class="divPreloader">
+        <div class="divPreloader">
             <img src="./img/loading.gif" class="imgLoader img-responsive" alt="imagen animada de carga">
-        </div> -->
+        </div>
 
         <div class="vistaPrevia">
             <img src="./img/tesla/modelS-blanco.jpg" id="imgAuto" class="img-responsive" alt="img tesla">
@@ -69,14 +99,6 @@
         <div class="form-group">
             <div class="col-sm-offset-4 col-sm-5">
                 <select id="inputSelect" class="form-control">
-                    <option value="Blanco">Blanco</option>
-                    <option value="Negro">Negro</option>
-                    <option value="Rojo">Rojo</option>
-                    <option value="verde">Verde</option>
-                    <option value="cafe">Cafe</option>
-                    <option value="rojooscuro">Rojo Oscuro</option>
-                    <option value="gris">Gris</option>
-                    <option value="azul">Azul</option>
                 </select>
             </div>
         </div>

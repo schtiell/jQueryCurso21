@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Importando la libreria jQuery -->
+    <script src="./js/lib/jquery-3.6.0.min.js"></script>
+
+    <!-- Importando bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!-- Importando favicon -->
+    <link rel="icon" type="image/x-icon" src="https://img.icons8.com/color/48/000000/tesla-logo.png"/>
+
+    <style>
+        img{
+            margin: 30px;
+            display: block;
+        }
+    </style>
+
+    <title>Trabajando con los atributos de las etiquetas html</title>
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Tema extra: <small>Data-Attributes</small></h1>
+        <hr>
+        <!-- data- permite definir atributos personalizados -->
+        <img src="./img/1.jpg" alt="jpg" data-color="blue">
+
+        <!-- debe utilizarse "data-" por convención para identificar un atributo propio -->
+        <img src="./img/2.png" alt="png" data-color="white">
+    </div>
+
+    <script>
+
+        // Función autoejecutable
+        (function(){
+
+            //Inicializando jQuery
+            $(function () {
+
+                let $imagen = $("img")
+                console.log( $imagen.attr("alt"));
+
+                // $imagen.attr("alt","Es una modificacion del atributo alt de la imagen");
+                // console.log($imagen);
+
+                //Imprimiendo un atributo personalizado
+                // console.log($imagen.attr("data-color"));
+
+                // //Aunque la manera más optima es la siguiente:
+                // console.log($imagen.data("color"));
+
+                $("img").on("mouseenter", function () {
+
+                    console.log($(this).data("color"));
+                    console.log($(this).attr("alt"));
+
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

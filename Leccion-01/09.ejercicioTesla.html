@@ -33,6 +33,30 @@
         }
     </style>
 
+    <title>Ejercicio sitio Tesla Motors</title>
+
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Ejercicio: <small>Tesla Motors!!!</small></h1>
+        <hr>
+
+        <div class="divPreloader">
+            <img src="./img/loading.gif" class="imgLoader img-responsive" alt="imagen animada de carga">
+        </div>
+
+        <div class="vistaPrevia">
+            <img id="imgAuto" class="img-responsive"   alt="img tesla">
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-5">
+                <select id="inputSelect" class="form-control">
+                </select>
+            </div>
+        </div>
+    </div>
+
     <script>
 
         (function () {
@@ -41,8 +65,52 @@
 
                 var teslaVista = {
 
+                    //Lamando a la imagen dentro de la clase .divPreloader
+                    loader: $(".divPreloader"),
+
                     //Definiendo un array para los colores, si no se envian más colores en el parametro de la funcion init, entonces toma este array como base para trabajar con las opciones de colores
                     colores: ['Blanco', 'Rojo', 'Negro'],
+
+                    //Función para cambiar el color
+                    cambiarColor: function(src_img) {
+
+                        //Asgina en una variable jQuery la imagen definida en el objeto llamada loader
+                        let $loader = teslaVista.loader;
+                        //a la imagen dentro de la variable $loader le asgina un tiempo de carga de 300ms
+                        $loader.fadeIn(300);
+
+
+                        //Si el source de la imagen no está definido entonces presenta el primer color definido en el arreglo de colores y le asigna el color al source de la imagen
+                        if (src_img === undefined) {
+                            var color = teslaVista.colores[0];
+                            src_img = `./img/tesla/modelS-${color}.jpg`;
+                        }
+
+                        //Una variable de tiempo para medir el tiempo de carga de una imagen
+                        let tiempoCarga = new Date();
+                        console.log(tiempoCarga);
+
+                        // img = "https://www.desktopbackground.org/download/2000x1500/2012/10/01/461294_download-wallpapers-3840x2400-garden-spring-landscape-ultra-hd-4k_3840x2400_h.jpg?d="+tiempoCarga;
+
+                        //Toma la etiqueta imagen le agrega el source y la clase ademas ejecuta la funcion on y le pasa como parametro el evento load y la ejecución de otra función
+                        $("<img>", {
+                            src: src_img,
+                            class: "img-responsive"
+                        })
+                            .on("load", function () {
+
+                                console.log("imagen cargada");
+                                let tiempoCarga = new Date();
+                                console.log(tiempoCarga);
+
+                                //Busca dentro del elemento con clase vistaPrevia todos las imagenes y las remueve
+                                $(".vistaPrevia").find("img").remove();
+                                $(this).appendTo(".vistaPrevia")
+
+                                //Cada vez que cambia el valor del combobox le asigna una transición de 300ms para hacer el cambio
+                                $loader.fadeOut(300);
+                            });
+                    },
 
                     //Funcion principal
                     init: function (Arguments) {
@@ -65,43 +133,22 @@
                         $('#inputSelect').on("change", function () {
 
                             var color = $(this).val();
-                            var url = `./img/tesla/modelS-${color}.jpg`;
-                            $("#imgAuto").attr("src",url);
-                        })
+                            var src_img = `./img/tesla/modelS-${color}.jpg`;
+                            teslaVista.cambiarColor(src_img);
+                        });
+
+                        teslaVista.cambiarColor();
                     }
                 };
 
                 teslaVista.init({
 
                     //Se define un objeto con un array de colores y se envia como argumento a la funcion init
-                    colores: ['Blanco', 'Rojo', 'Negro', 'Azul', 'Cafe', 'Gris', 'Rojo Oscuro']
+                    colores: ['Azul', 'Cafe', 'Blanco', 'Rojo', 'Negro', 'Gris', 'Rojo Oscuro', 'Verde']
                 });
-
             });
         })();
     </script>
 
-    <title>Ejercicio sitio Tesla Motors</title>
-</head>
-<body>
-    <div class="container text-center">
-        <h1>Ejercicio:<small>Tesla Motors!!!</small></h1>
-        <hr>
-
-        <div class="divPreloader">
-            <img src="./img/loading.gif" class="imgLoader img-responsive" alt="imagen animada de carga">
-        </div>
-
-        <div class="vistaPrevia">
-            <img src="./img/tesla/modelS-blanco.jpg" id="imgAuto" class="img-responsive" alt="img tesla">
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-5">
-                <select id="inputSelect" class="form-control">
-                </select>
-            </div>
-        </div>
-    </div>
 </body>
 </html>

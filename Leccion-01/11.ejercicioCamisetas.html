@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Importando la libreria jQuery -->
+    <script src="./js/lib/jquery-3.6.0.min.js"></script>
+
+    <!-- Importando bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!-- Importando favicon -->
+    <link rel="icon" type="image/x-icon" src="https://img.icons8.com/color/48/000000/tesla-logo.png"/>
+
+    <style>
+        .imgThumb{
+            display: block;
+            cursor: pointer;
+        }
+
+        .imgRating{
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+
+    <title>Tienda de ropa</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Clothes store: <small>Jim's</small></h1>
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <section class="panel">
+                    <div class="panel-body">
+
+                        <img data-color="blanca" src="img/camiseta/thumbs/blanca.jpg" class="imgThumb img-Thumbnail" alt="camisa blanca">
+
+                        <img data-color="gris" src="img/camiseta/thumbs/gris.jpg" class="imgThumb img-Thumbnail" alt="camisa gris">
+
+                        <img data-color="negra" src="img/camiseta/thumbs/negra.jpg" class="imgThumb img-Thumbnail" alt="camisa negra">
+
+                        <img data-color="roja" src="img/camiseta/thumbs/rojo.jpg" class="imgThumb img-Thumbnail" alt="camisa roja">
+
+                        <img data-color="rosa" src="img/camiseta/thumbs/rosa.jpg" class="imgThumb img-Thumbnail" alt="camisa rosa">
+
+                        <img data-color="verde" src="img/camiseta/thumbs/verde.jpg" class="imgThumb img-Thumbnail" alt="camisa verde">
+
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-sm-5">
+                <secction class="panel">
+                    <div class="panel-body">
+
+                        <img src="./img/camiseta/large/blanca.jpg" id="muestraGrande">
+
+                    </div>
+                </secction>
+            </div>
+
+            <div class="col-sm-4">
+                <section class="panel">
+                    <div class="panel-body">
+                        <h2>Camiseta especial <small id="lblColor">Blanca</small></h2>
+
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque vero quos doloribus officia aliquam blanditiis nisi inventore magni dolore enim quidem hic soluta nostrum provident iure, temporibus, quas velit voluptates.</p>
+                            <br>
+                            <br>
+                        </p>
+
+                        <p>
+                            <h4>Rating</h4>
+                            <img src="./img/star1.png" alt="" class="imgRating">
+                            <img src="./img/star1.png" alt="" class="imgRating">
+                            <img src="./img/star1.png" alt="" class="imgRating">
+                            <img src="./img/star1.png" alt="" class="imgRating">
+                            <img src="./img/star2.png" alt="" class="imgRating">
+                            <br>
+                            <br>
+                        </p>
+                        <p>
+                            <h3>Precio: <small>$10.00</small></h3>
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/lib/clotheStore.js"></script>
+</body>
+</html>

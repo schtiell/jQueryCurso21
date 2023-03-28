@@ -13,3 +13,10 @@ dt{
     background: lightsteelblue;
     border-top: 2px solid lightseagreen;
 }
+
+img{
+    height: 200px;
+    width: 400px;
+
+    display: block;
+}

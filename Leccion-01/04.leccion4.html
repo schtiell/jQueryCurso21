@@ -5,25 +5,118 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Javascript -->
-    <!-- Importando la libreria jQuery -->
-    <script src="./js/lib/jquery-3.6.0.min.js"></script>
+    <!-- css3 for bootstrap  -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    
+    <!-- cdn jquery for bootstrap framework-->
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    
+    <!-- cdn bundle bootstrap include Popper  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    
+    <!-- Importando el CDN "Content Delivery Network" de bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/jquery-ico.png" type="image/x-icon">
+    
+    <!-- Aplicandos estilos css -->
+    <link rel="stylesheet" href="./css/styles.css" type="text/css">
+
+    <style>
+
+        #contenedor{
+            height: 250px;
+            width: 250px;
+
+            border: 4px solid #000;
+            background: lightseagreen;
+            
+            margin: 20px auto;
+            padding: 60px;
+
+            display: block;
+        }
+
+        #parrafo1{
+            font: 30px bolder verdana;
+            color: aliceblue;
+            display: block;
+        }
+
+
+    </style>
+
+    <title>Lección 4</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Lección 4: Acordeon</h1>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <!-- https://www.w3schools.com/tags/tag_dl.asp-->
+                <dl>                                            <!-- desciption list -->
+                    <dt>Titulo del acordeon</dt>                <!-- define term-->
+                    <dd>Este es el detalle del acordeon</dd>    <!-- describe each term -->
+                    <dt>Titulo del acordeon</dt>
+                    <dd>Este es el detalle del acordeon</dd>
+                    <dt>Titulo del acordeon</dt>
+                    <dd>Este es el detalle del acordeon</dd>
+                    <dt>Titulo del acordeon</dt>
+                    <dd>Este es el detalle del acordeon</dd>
+                    <dt>Titulo del acordeon</dt>
+                    <dd>Este es el detalle del acordeon</dd>
+                    <dt>Titulo del acordeon</dt>
+                    <dd>Este es el detalle del acordeon</dd>
+                    <dt>Titulo del acordeon</dt>
+                    <dd>Este es el detalle del acordeon</dd>
+                </dl>
+            </div>
+            <div class="col-sm-6">
+                <img src="./img/jq.png" alt="" id="img-jq">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Obtiendo el texto de un element</h2>
+                <hr>
+                <span id="span1">Click sobre el div</span>
+
+                <div id="contenedor">
+                    <p id="parrafo1">Texto del contenedor</p>
+                </div>
+            </div>
+            <div class="col-sm-6"></div>
+        </div>
+
+    </div>
 
     <script>
 
-        // Encapsulamiento de función anónima
+        /**
+         * 01: Encapsulamiento de función anónima.
+         * 02: Bloque de código jQuery.
+         * 03
+         **/
+
+        //01
         (function (){
 
-            //Inicialización de jQuery una vez que el DOM ha terminado de cargar
+            //02
             $(function (){
 
-                //Almacenados los dd en una variable para no estar consultando constantemente en el DOM
                 var dds = $('dd');
 
                 //Ocultando todos los elementos contenidos en la variable dds
                 dds.hide();
 
-                //Selecciona un elementoto especifico del objetos de elementos y lo muestra
+                //Selecciona un elemento especifico de los objetos de elementos y lo muestra
                 dds.eq(0).show();
 
                 $('dt').on("mouseenter", function(){
@@ -32,52 +125,38 @@
 
                     //El método slideUp() desliza hacia arriba (oculta) los elementos seleccionados. Recibe un parametro de tiempo en milisegundos par acelerar o alentar el efecto
                     dds.slideUp(800);
-                    //Selecciona el siguiente elemento hermano en el niver jerarquico del DOM
+                    //Selecciona el siguiente elemento hermano en el nivel jerarquico del DOM
                     $(this)
                         .next()
                         .show();
                 });
             });
 
+            $(function (){
+
+                $('#img-jq').mouseenter(function (){
+                    $(this)
+                        .slideUp(2000)
+                        .slideDown(2000);
+                });
+
+                $("#img-jq").mouseleave(function(){
+                    $(this)
+                        .fadeOut(2000)      //Encadenamiento de metodos
+                        .fadeIn(2000);
+                });
+
+            });
+
+
+            $("#contenedor").click(function (){
+
+                $("#span1").html($("#parrafo1").text());
+
+                $("#parrafo1").html("<i>Texto modificado</i>");
+            })
+
         })();
-
     </script>
-
-    <!-- Styles -->
-    <!-- Importando la libreria de Bootstrap -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-
-    <!-- Aplicandos estilos css -->
-    <link rel="stylesheet" href="./css/styles.css" type="text/css">
-
-
-    <title>Lección 4</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Lección 4: Acordeon</h1>
-        <hr>
-
-        <div class="" align="center">
-            <!-- https://www.w3schools.com/tags/tag_dl.asp-->
-            <dl>
-                <dt>Titulo del acordeon</dt>
-                <dd>Este es el detalle del acordeon</dd>
-                <dt>Titulo del acordeon</dt>
-                <dd>Este es el detalle del acordeon</dd>
-                <dt>Titulo del acordeon</dt>
-                <dd>Este es el detalle del acordeon</dd>
-                <dt>Titulo del acordeon</dt>
-                <dd>Este es el detalle del acordeon</dd>
-                <dt>Titulo del acordeon</dt>
-                <dd>Este es el detalle del acordeon</dd>
-                <dt>Titulo del acordeon</dt>
-                <dd>Este es el detalle del acordeon</dd>
-                <dt>Titulo del acordeon</dt>
-                <dd>Este es el detalle del acordeon</dd>
-            </dl>
-
-        </div>
-    </div>
 </body>
 </html>

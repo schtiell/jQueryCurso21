@@ -5,16 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Importando bootstrap -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-
-    <!-- Importando el jQuery -->
-    <script src="./js/lib/jquery-3.6.0.min.js"></script>
+    <!-- css3 for bootstrap  -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    
+    <!-- cdn jquery for bootstrap framework-->
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    
+    <!-- cdn bundle bootstrap include Popper  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    
+    <!-- Importando el CDN "Content Delivery Network" de bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/jquery-ico.png" type="image/x-icon">
 
     <style>
-        .img100{
+        .image{
             width: 150px;
             height: 150px;
+
+            margin: 20px auto;
         }
 
         .colorRojo{
@@ -27,7 +40,6 @@
     </style>
 
     <title>Leccion 03 Eventos</title>
-   
 </head>
 <body>
     <div class="container">
@@ -35,13 +47,11 @@
 
         <hr>
 
-        <!-- Los eventos son sucesos que son disparados cuando algo ocurre. Por ejemplo clickear sobre un boton -->
-
         <button type="submit" id="btn-1" class="btn btn-primary">Enviar</button>
 
-        <br><br>
+        <br>
 
-        <img src="./img/nophoto.jpg" alt="img de fondo" id="img-1" class="img100 img-circle img-rounded">
+        <img src="./img/nophoto.jpg" alt="img de fondo" id="imgProfessor" class="image rounded-circle">
 
         <div class="colorRojo">
 
@@ -61,21 +71,20 @@
             jQuery(document).ready(function (){statement});
             $(document).ready(function() { statement});
         */
+
         $(function (){
             console.log('Llegue a jQuery');
-
-            //Se indica que al dar clic sobre el boton con id btn-1 se ejecute la funcion que lanza un msj en consola
 
             //el metodo on permite ejecutar los eventos una vez que el DOM ha cargado completamente.git
             $('#btn-1').on('click', function(){
                 console.log('Clikeando sobre el boton');
             });
 
-            $('#img-1').on('mouseenter',function () {
+            $('#imgProfessor').on('mouseenter',function () {
                 $(this).attr('src','./img/profesor.jpg');
             });
 
-            $('#img-1').on('mouseleave',function () {
+            $('#imgProfessor').on('mouseleave',function () {
                 $(this).attr("src","./img/nophoto.jpg");
             });
 

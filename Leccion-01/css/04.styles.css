@@ -1,5 +1,6 @@
-button{
-    margin-bottom: 40px;
+.btn{
+    margin: 20px auto;
+    display: block;
 }
 
 #date,
